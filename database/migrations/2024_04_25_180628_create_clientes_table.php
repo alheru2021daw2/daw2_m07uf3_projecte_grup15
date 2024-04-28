@@ -12,8 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('clientes', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('Passaport_client')->primary();
+            $table->string('Nom');
+            $table->string('Cognoms');
+            $table->integer('Edat');
+            $table->integer('Telefon');
+            $table->string('Adressa');
+            $table->string('Ciutat');
+            $table->string('Pais');
+            $table->string('Email');
+            $table->enum('Tipus_targeta',['Debit','Credit']);
+            $table->integer('Numero_targeta');
         });
     }
 
