@@ -15,7 +15,8 @@
  	<td>Pais</td>
  	<td>Email</td>
  	<td>Tipus targeta</td>
- 	<td>Numero targeta</td> 
+ 	<td>Numero targeta</td>
+	<td>Acciones sobre la tabla</td> 
  	</tr>
  	</thead>
  <tbody>
@@ -32,10 +33,25 @@
  <td>{{$clientes->Email}}</td>
  <td>{{$clientes->Tipus_targeta}}</td>
  <td>{{$clientes->Numero_targeta}}</td>
- </tr>
+ 
+ <td class="text-left">
+	<a href="{{ route('clientes.edit', $clientes->Passaport_client)}}" class="btn btn-primary btn-sm">Edita</a>
+	<form action="{{route('clientes.destroy', $clientes->Passaport_client)}}" method="post" style="display: inline-block">
+	@csrf
+	@method('DELETE')
+	<button class="btn btn-danger btn-sm" type="submit">
+	Borrar
+	</button>
+	</form>
+	<a class="btn btn-info btn-sm">PDF</a>
+</td> 
+</tr>
  @endforeach
  </tbody>
  </table>
 <div>
+<div class="p-6 bg-white border-b border-gray-200">
+	<a href="{{url('dashboard')}}">Torna al dashboard<a/>
+</div>
 @endsection
 

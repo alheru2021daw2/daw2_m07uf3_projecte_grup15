@@ -9,16 +9,19 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-700">
-			<a href="{{url('clientes')}}">Muestra datos de la tabla clientes<a/>
+			<a href="{{url('clientes')}}">Clientes: Visualiza, actualiza y borra un registro<a/>
 		</div>
-		<div class="p-6-white border-b border-gray-200">
-			<a>Muestra datos de la tabla vuelos<a/>
+		<div class="p-6 text-gray-700">
+                        <a href="{{url('clientes/create')}}">Clientes: crea un nuevo cliente<a/>
 		</div>
-		<div class="p-6-white border-b border-gray-200">
-			<a>Muestra datos de la tabla reservas<a/>
+		<div class="p-6 text-gray-700">
+			<a style="color:red;">Muestra datos de la tabla vuelos<a/>
 		</div>
-		<div class="p-6-white border-b border-gray-200">
-			<a>Muestra datos de la tabla usuarios<a/>
+		<div class="p-6 text-gray-700">
+			<a style="color:red;">Muestra datos de la tabla reservas<a/>
+		</div>
+		<div class="p-6 text-gray-700">
+			<a style="color:red;">Muestra datos de la tabla usuarios<a/>
 		</div>
             </div>
         </div>

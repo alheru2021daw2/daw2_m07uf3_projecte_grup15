@@ -21,7 +21,7 @@ class ControladorCliente extends Controller
      */
     public function create()
     {
-        //
+        return view('crea');
     }
 
     /**
@@ -29,7 +29,21 @@ class ControladorCliente extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nuevoCliente = $request->validate([
+		'Passaport_client' => 'required',
+		'Nom' => 'required',
+                'Cognoms' => 'required',
+                'Edat' => 'required',
+                'Telefon' => 'required',
+                'Adressa' => 'required',
+                'Ciutat' => 'required',
+                'Pais' => 'required',
+                'Email' => 'required',
+                'Tipus_targeta' => 'required',
+                'Numero_targeta' => 'required'
+	]);
+	$cliente = Cliente::create($nuevoCliente);
+	return view('dashboard');
     }
 
     /**
@@ -43,24 +57,40 @@ class ControladorCliente extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $Passaport_client)
     {
-        //
+        $datos_cliente = Cliente::findOrFail($Passaport_client);
+	return view('actualitza', compact('datos_cliente'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $Passaport_client)
     {
-        //
+        $nuevos_datos_cliente = $request->validate([
+                'Passaport_client' => 'required',
+                'Nom' => 'required',
+                'Cognoms' => 'required',
+                'Edat' => 'required',
+                'Telefon' => 'required',
+                'Adressa' => 'required',
+                'Ciutat' => 'required',
+                'Pais' => 'required',
+                'Email' => 'required',
+                'Tipus_targeta' => 'required',
+                'Numero_targeta' => 'required'
+	]);
+	Cliente::findorFail($Passaport_client)->update($nuevos_datos_cliente);
+	return view('dashboard');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $Passaport_client)
     {
-        //
+	$cliente = Cliente::findOrFail($Passaport_client)->delete();
+	return view('dashboard');
     }
 }
