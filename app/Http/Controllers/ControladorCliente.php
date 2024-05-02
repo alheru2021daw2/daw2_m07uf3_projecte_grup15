@@ -53,7 +53,7 @@ class ControladorCliente extends Controller
     {
         //
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
@@ -92,5 +92,10 @@ class ControladorCliente extends Controller
     {
 	$cliente = Cliente::findOrFail($Passaport_client)->delete();
 	return view('dashboard');
+    }
+        public function index_basic()
+    {
+        $datos_clientes = Cliente::all();
+        return view('lista-basica', compact('datos_clientes'));
     }
 }

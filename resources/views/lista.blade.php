@@ -1,5 +1,9 @@
 @extends('disseny')
 @section('content')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        </h2>
 <h1>Lista de clientes</h1>
 <div class="mt-5">
 <table class="table">
@@ -53,5 +57,7 @@
 <div class="p-6 bg-white border-b border-gray-200">
 	<a href="{{url('dashboard')}}">Torna al dashboard<a/>
 </div>
+    </x-slot>
+</x-app-layout>
 @endsection
 

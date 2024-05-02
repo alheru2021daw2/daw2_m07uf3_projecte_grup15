@@ -13,11 +13,19 @@ Route::get('/', function (){
 });
 
 Route::group(['middleware' => 'auth'], function(){
+	Route::get('/dashboard-basic', function(){
+		return view('dashboard-basic');
+	})->name('dashboard-basic');
+
+//	Route::get('clientes/index_basic', 'ControladorCliente@index_basic')->name('clientes.index_basic');
+	Route::get('clientes/index_basic', [ControladorCliente::class, 'index_basic'])->name('clientes.index_basic');
+//	Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');	
 	Route::get('/dashboard', function (){
 		return view('dashboard');
 	})->name('dashboard');
 
 	Route::resource('clientes', ControladorCliente::class);
+	Route::view('/header', 'header')->name('header');
 });
 
 

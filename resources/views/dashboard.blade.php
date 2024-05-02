@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Dashboard dels caps de departament') }}
         </h2>
     </x-slot>
 
@@ -22,6 +22,9 @@
 		</div>
 		<div class="p-6 text-gray-700">
 			<a style="color:red;">Muestra datos de la tabla usuarios<a/>
+		</div>
+		<div class="p-6 bg-white border-b border-gray-200">
+			<a href="{{route('register')}}">Crea un nuevo usuario</a><br>
 		</div>
             </div>
         </div>
