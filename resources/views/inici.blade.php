@@ -10,6 +10,13 @@
 	@if (Route::has('login'))
 	@auth
 		<a href="{{ url('/dashboard') }}">Dashboard</a>
+		<br>
+		        <div class="p-3 bg-white border-b border-gray-200">
+       			<form id="logout-form" action="{{route('logout')}}" method="POST">
+        		@csrf
+        		<button type="submit">Logout</button>
+       			</form>
+        		</div>
 	@else
 		<a href="{{ route('login') }}">Log in</a><br>
 	@endauth 

@@ -1,5 +1,7 @@
 @extends('disseny')
 @section('content')
+<x-app-layout>
+	<x-slot name="header">
 <div class="card mt-5">
 	<div class="card-header">
 		Actualitzación de datos
@@ -70,5 +72,9 @@
         </form>
         </div>
 </div>
+<div class="p-6 bg-white border-b border-gray-200">
 <br><a href="{{url('clientes')}}">Acceso directo a la lista de clientes<a/>
+<br><a href="{{url('dashboard')}}">Vuelve al dashboard<a/>
+</x-slot>
+</x-app-layout>
 @endsection

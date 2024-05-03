@@ -14,15 +14,21 @@
 		<div class="p-6 text-gray-700">
                         <a href="{{url('clientes/create')}}">Clientes: crea un nuevo cliente<a/>
 		</div>
+		<hr>
 		<div class="p-6 text-gray-700">
-			<a style="color:red;">Muestra datos de la tabla vuelos<a/>
+			<a href="{{url('vuelos')}}">Vuelos: Visualiza, actualiza y borra un registro<a/>
+		</div>
+                <div class="p-6 text-gray-700">
+                        <a href="{{ url('vuelos/create') }}">Vuelos: crea un nuevo vuelo</a>
+                </div>
+		<hr>
+		<div class="p-6 text-gray-700">
+			<a style="color:red;">Reservas: Visualiza, actualiza y borra un registro<a/>
 		</div>
 		<div class="p-6 text-gray-700">
-			<a style="color:red;">Muestra datos de la tabla reservas<a/>
-		</div>
-		<div class="p-6 text-gray-700">
-			<a style="color:red;">Muestra datos de la tabla usuarios<a/>
-		</div>
+                        <a style="color:red">Reservas: crea un nuevo vuelo<a/>
+                </div>
+		<hr>
 		<div class="p-6 bg-white border-b border-gray-200">
 			<a href="{{route('register')}}">Crea un nuevo usuario</a><br>
 		</div>

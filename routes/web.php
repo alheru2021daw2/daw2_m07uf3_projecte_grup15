@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControladorCliente;
-
+use App\Http\Controllers\ControladorVuelo;
 
 //Route::get('/', function () {
 //    return view('welcome');
@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function(){
 	})->name('dashboard');
 
 	Route::resource('clientes', ControladorCliente::class);
+	Route::resource('vuelos', ControladorVuelo::class);
 	Route::view('/header', 'header')->name('header');
 });
 
@@ -44,19 +45,21 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 use App\Models\Cliente;
+use App\Models\Vuelo;
 
-/*Route::post('/noureg', function(){
-//	$dades=array("Passaport_client"=>"H392L","Nom"=>"Alex","Cognoms"=>"Hernandez Ruiz",
-		"Edat"=>22, "Telefon"=>666666666, "Adressa"=>"Sta Coloma","Ciutat"=>"Barcelona",
-		"Pais"=>"España","Email"=>"01alex.hr@gmail.com","Tipus_targeta"=>"Debit","Numero_targeta"=>303022);
+Route::post('/noureg', function(){
+	$dades=array("Codi_unic"=>"01A0","Codi_model"=>"01A","Ciutat_origen"=>"Barcelona",
+		"Ciutat_destinacio"=>"Berlín", "Terminal_origen"=>"T1", "Terminal_destinacio"=>"T2","Data_sortida"=>"2024-05-02",
+		"Data_arribada"=>"2025-05-03","Hora_sortida"=>"12:30:00","Hora_arribada"=>"14:30:00","Classe"=>"Turista");
 
-Cliente::create($dades);
+Vuelo::create($dades);
 });
 Route::get('/mostrareg', function () {
-	$Passaport_client="H392L";
-	$dades=Cliente::where("Passaport_client","=",$Passaport_client)->first();
-	echo $dades["Nom"]."\n";
+	$Codi_unic="01A0";
+	$dades=Vuelo::where("Codi_unic","=",$Codi_unic)->first();
+	echo $dades["Codi_model"]."\n";
 });
+/*
 Route::delete('/delreg', function(){
         $Passaport_client="H392L";
 	Cliente::where("Passaport_client","=",$Passaport_client)->delete();
