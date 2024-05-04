@@ -4,7 +4,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControladorCliente;
 use App\Http\Controllers\ControladorVuelo;
-
+use Dompdf\Dompdf;
+use Illuminate\Support\Facades\View;
+use App\Models\Cliente;
+use App\Models\Vuelo;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
@@ -23,6 +26,28 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/dashboard', function (){
 		return view('dashboard');
 	})->name('dashboard');
+        Route::get('/clientes/{Passaport_client}/pdfC', function ($Passaport_client){
+                $clientes = App\Models\Cliente::findOrFail($Passaport_client);
+//	        $cliente = App\Models\Cliente::where('Passaport_client', $Passaport_client)->firstOrFail();
+
+                $pdf = new Dompdf();
+                $pdf->loadHtml(View::make('pdfC', compact('clientes'))->render());
+                $pdf->setPaper('A4', 'portrait');
+                $pdf->render();
+
+                return $pdf->stream('cliente.pdf');
+        });
+
+	Route::get('/vuelos/{Codi_unic}/pdf', function ($Codi_unic){
+		$vuelo = App\Models\Vuelo::findOrFail($Codi_unic);
+		
+		$pdf = new Dompdf();
+		$pdf->loadHtml(View::make('pdf', compact('vuelo'))->render());
+		$pdf->SetPaper('A4', 'portrait');
+		$pdf->render();
+
+		return $pdf->stream('vuelo.pdf');
+	});   
 
 	Route::resource('clientes', ControladorCliente::class);
 	Route::resource('vuelos', ControladorVuelo::class);
@@ -43,9 +68,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
-use App\Models\Cliente;
-use App\Models\Vuelo;
 
 Route::post('/noureg', function(){
 	$dades=array("Codi_unic"=>"01A0","Codi_model"=>"01A","Ciutat_origen"=>"Barcelona",

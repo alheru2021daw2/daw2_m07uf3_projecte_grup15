@@ -47,7 +47,7 @@
 	Borrar
 	</button>
 	</form>
-	<a class="btn btn-info btn-sm">PDF</a>
+        <a href="{{url('/clientes/' . $clientes->Passaport_client . '/pdfC')}}" class="btn btn-info btn-sm">PDF</a>
 </td> 
 </tr>
  @endforeach
