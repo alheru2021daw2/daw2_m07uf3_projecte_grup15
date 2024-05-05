@@ -4,7 +4,7 @@
 	<x-slot name="header">
 	<h2 class="font-semibold text-xl text-gray-800 leading-tight">
 	</h2>
-<h1>Lista de vuelos</h1>
+<h1>Lista de reservas</h1>
 <div class="mt-5">
  <table class="table">
  <thead>
@@ -37,7 +37,7 @@
  <td>{{$vuelos->Hora_sortida}}</td>
  <td>{{$vuelos->Hora_arribada}}</td>
  <td>{{$vuelos->Classe}}</td>
- 
+
  <td class="text-left">
         <a href="{{ route('vuelos.edit', $vuelos->Codi_unic)}}" class="btn btn-primary btn-sm">Edita</a>
         <form action="{{route('vuelos.destroy', $vuelos->Codi_unic)}}" method="post" style="display: inline-block">

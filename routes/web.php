@@ -4,10 +4,12 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControladorCliente;
 use App\Http\Controllers\ControladorVuelo;
+use App\Http\Controllers\ControladorReserva;
 use Dompdf\Dompdf;
 use Illuminate\Support\Facades\View;
 use App\Models\Cliente;
 use App\Models\Vuelo;
+use App\Models\Reserva;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
@@ -42,15 +44,28 @@ Route::group(['middleware' => 'auth'], function(){
 		$vuelo = App\Models\Vuelo::findOrFail($Codi_unic);
 		
 		$pdf = new Dompdf();
-		$pdf->loadHtml(View::make('pdf', compact('vuelo'))->render());
+		$pdf->loadHtml(View::make('pdfR', compact('vuelo'))->render());
 		$pdf->SetPaper('A4', 'portrait');
 		$pdf->render();
 
 		return $pdf->stream('vuelo.pdf');
 	});   
+	Route::get('/reservas/{Passaport_client}/{Codi_unic}/pdf', function ($Passaport_client, $Codi_unic) {
+		$reserva = App\Models\Reserva::where('Codi_unic', $Codi_unic)
+                                   ->where('Passaport_client', $Passaport_client)
+                                   ->firstOrFail();
+	
+		$pdf = new Dompdf();
+		$pdf->loadHtml(View::make('pdfR',compact('reserva'))->render());
+		$pdf->SetPaper('A4', 'portrait');
+		$pdf->render();
 
+		return $pdf->stream('reserva.pdf');
+	});
 	Route::resource('clientes', ControladorCliente::class);
 	Route::resource('vuelos', ControladorVuelo::class);
+	Route::resource('reservas', ControladorReserva::class);
+//	Route::delete('/reservas/{Passaport_client}/{Codi_unic}', 'ReservaController@destroy')->name('reservas.destroy');
 	Route::view('/header', 'header')->name('header');
 });
 
@@ -70,16 +85,16 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::post('/noureg', function(){
-	$dades=array("Codi_unic"=>"01A0","Codi_model"=>"01A","Ciutat_origen"=>"Barcelona",
-		"Ciutat_destinacio"=>"Berlín", "Terminal_origen"=>"T1", "Terminal_destinacio"=>"T2","Data_sortida"=>"2024-05-02",
-		"Data_arribada"=>"2025-05-03","Hora_sortida"=>"12:30:00","Hora_arribada"=>"14:30:00","Classe"=>"Turista");
+	$dades=array("Passaport_client"=>"1","Codi_unic"=>"01A0","Localitzador"=>"E30",
+		"Numero_seient"=>"30", "Equipatge_ma"=>true, "Equipatge_cabina"=>true,"Quantitat_equipatge_facturat_20kg"=>"0",
+		"Tipus_assegurança"=>"Sense franquicia","Preu_vol"=>"20.50","Tipus_checking"=>"On-line");
 
-Vuelo::create($dades);
+Reserva::create($dades);
 });
 Route::get('/mostrareg', function () {
 	$Codi_unic="01A0";
-	$dades=Vuelo::where("Codi_unic","=",$Codi_unic)->first();
-	echo $dades["Codi_model"]."\n";
+	$dades=Reserva::where("Codi_unic","=",$Codi_unic)->first();
+	echo $dades["Passaport_client"]."\n";
 });
 /*
 Route::delete('/delreg', function(){

@@ -23,13 +23,13 @@
                 </div>
 		<hr>
 		<div class="p-6 text-gray-700">
-			<a style="color:red;">Reservas: Visualiza, actualiza y borra un registro<a/>
+			<a href="{{url('reservas')}}">Reservas: Visualiza, actualiza y borra un registro<a/>
 		</div>
 		<div class="p-6 text-gray-700">
-                        <a style="color:red">Reservas: crea un nuevo vuelo<a/>
+                        <a href="{{url('reservas/create')}}">Reservas: crea una nueva reserva<a/>
                 </div>
 		<hr>
-		<div class="p-6 bg-white border-b border-gray-200">
+		<div class="p-6 text-gray-700">
 			<a href="{{route('register')}}">Crea un nuevo usuario</a><br>
 		</div>
             </div>
