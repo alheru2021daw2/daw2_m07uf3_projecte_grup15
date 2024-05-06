@@ -98,4 +98,9 @@ class ControladorVuelo extends Controller
 	$datos_vuelo = Vuelo::findOrFail($Codi_unic);
 	return view('mostrarVuelos', compact('datos_vuelo'));
     }
+    public function index_basic()
+    {
+        $datos_vuelos = Vuelo::all();
+        return view('listaVuelos-basica', compact('datos_vuelos'));
+    }
 }

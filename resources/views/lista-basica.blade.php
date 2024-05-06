@@ -7,16 +7,8 @@
         <tr class="table-primary">
         <td>Passaport</td>
         <td>Nom</td>
-        <td>Cognom</td>
+        <td>Cognoms</td>
         <td>Edat</td>
-        <td>Telefon</td>
-        <td>Adreça</td>
-        <td>Ciutat</td>
-        <td>Pais</td>
-        <td>Email</td>
-        <td>Tipus targeta</td>
-        <td>Numero targeta</td>
-        <td>Acciones sobre la tabla</td>
         </tr>
         </thead>
  <tbody>
@@ -26,13 +18,6 @@
  <td>{{$clientes->Nom}}</td>
  <td>{{$clientes->Cognoms}}</td>
  <td>{{$clientes->Edat}}</td>
- <td>{{$clientes->Telefon}}</td>
- <td>{{$clientes->Adressa}}</td>
- <td>{{$clientes->Ciutat}}</td>
- <td>{{$clientes->Pais}}</td>
- <td>{{$clientes->Email}}</td>
- <td>{{$clientes->Tipus_targeta}}</td>
- <td>{{$clientes->Numero_targeta}}</td>
 @endforeach
 </tbody>
 </table>

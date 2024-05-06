@@ -10,7 +10,15 @@
 			<div class="p-6 bg-white border-b border-gray-200">
 				<a href="{{ url('clientes/index_basic') }}">Clientes: 
 				Visualització bàsica<a/>
-			</div> 
+			</div>
+                        <div class="p-6 bg-white border-b border-gray-200">
+                                <a href="{{ url('vuelos/index_basic') }}">Vuelos:
+                                Visualització bàsica<a/>
+                        </div> 
+                        <div class="p-6 bg-white border-b border-gray-200">
+                                <a href="{{ url('reservas/index_basic') }}">Reservas:
+                                Visualització bàsica<a/>
+                        </div>
 		</div>
 	</div>
 </div>

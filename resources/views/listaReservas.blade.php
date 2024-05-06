@@ -12,13 +12,6 @@
  <td>Passaport client</td>
  <td>Codi unic</td>
  <td>Localitzador</td>
- <td>Numero seient</td>
- <td>Equipatge ma</td>
- <td>Equipatge cabina</td>
- <td>Quantitat equipatge facturat +20kg</td>
- <td>Tipus assegurança</td>
- <td>Preu vol</td>
- <td>Tipus checking</td>
  <td>Accions sobre la taula</td>
  </tr>
  </thead>
@@ -28,13 +21,6 @@
  <td>{{$reservas->Passaport_client}}</td>
  <td>{{$reservas->Codi_unic}}</td>
  <td>{{$reservas->Localitzador}}</td>
- <td>{{$reservas->Numero_seient}}</td>
- <td>{{$reservas->Equipatge_ma == "1" ? 'Sí':'No'}}</td>
- <td>{{$reservas->Equipatge_cabina == "1" ? 'Sí':'No'}}</td>
- <td>{{$reservas->Quantitat_equipatge_facturat_20kg}}</td>
- <td>{{$reservas->Tipus_assegurança}}</td>
- <td>{{$reservas->Preu_vol}}</td>
- <td>{{$reservas->Tipus_checking}}</td>
  <td class="text-left">
 	<a href="{{url ('/reservas/' . $reservas->Passaport_client . '/' . $reservas->Codi_unic)}}" class="btn btn-info btn-sm">Mostrar</a>
         <a href="{{route ('reservas.edit', $reservas->Codi_unic)}}" class="btn btn-primary btn-sm">Edita</a>

@@ -101,4 +101,9 @@ class ControladorReserva extends Controller
                       ->first();
         return view('mostrarReservas', compact('reserva'));
     }
+        public function index_basic()
+    {
+        $datos_reservas = Reserva::all();
+        return view('listaReservas-basica', compact('datos_reservas'));
+    }
 }

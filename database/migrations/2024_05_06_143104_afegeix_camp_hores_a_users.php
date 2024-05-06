@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AfegeixCampRoleAUsers extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,8 @@ class AfegeixCampRoleAUsers extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-		$table->string('role',20)->after('name')->default('cap_departament');
+		$table->timestamp('hora_entrada')->nullable();
+		$table->timestamp('hora_sortida')->nullable();
 	});
     }
 
@@ -22,7 +23,8 @@ class AfegeixCampRoleAUsers extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-		$table->dropColumn('role');
-    });
+		$table->dropColumn('hora_entrada');
+		$table->dropColumn('hora_sortida');
+	});
     }
-}
+};

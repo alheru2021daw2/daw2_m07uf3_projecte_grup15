@@ -4,7 +4,7 @@
 	<x-slot name="header">
 	<h2 class="font-semibold text-xl text-gray-800 leading-tight">
 	</h2>
-<h1>Lista de reservas</h1>
+<h1>Lista de vuelos</h1>
 <div class="mt-5">
  <table class="table">
  <thead>
