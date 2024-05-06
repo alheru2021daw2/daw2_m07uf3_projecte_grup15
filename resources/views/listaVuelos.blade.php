@@ -13,13 +13,6 @@
  <td>Codi model</td>
  <td>Ciutat origen</td>
  <td>Ciutat destinacio</td>
- <td>Terminal origen</td>
- <td>Terminal destinacio</td>
- <td>Data sortida</td>
- <td>Data arribada</td>
- <td>Hora sortida</td>
- <td>Hora arribada</td>
- <td>Classe</td>
  <td>Accions sobre la taula</td> 
  </tr>
  </thead>
@@ -30,15 +23,9 @@
  <td>{{$vuelos->Codi_model}}</td>
  <td>{{$vuelos->Ciutat_origen}}</td>
  <td>{{$vuelos->Ciutat_destinacio}}</td>
- <td>{{$vuelos->Terminal_origen}}</td>
- <td>{{$vuelos->Terminal_destinacio}}</td>
- <td>{{$vuelos->Data_sortida}}</td>
- <td>{{$vuelos->Data_arribada}}</td>
- <td>{{$vuelos->Hora_sortida}}</td>
- <td>{{$vuelos->Hora_arribada}}</td>
- <td>{{$vuelos->Classe}}</td>
 
  <td class="text-left">
+	<a href="{{route('vuelos.mostrar', $vuelos->Codi_unic)}}" class="btn btn-info btn-sm">Mostrar</a>
         <a href="{{ route('vuelos.edit', $vuelos->Codi_unic)}}" class="btn btn-primary btn-sm">Edita</a>
         <form action="{{route('vuelos.destroy', $vuelos->Codi_unic)}}" method="post" style="display: inline-block">
         @csrf
@@ -47,7 +34,7 @@
         Borrar
         </button>
         </form>
-        <a href="{{url('/vuelos/' . $vuelos->Codi_unic . '/pdf')}}" class="btn btn-info btn-sm">PDF</a>
+        <a href="{{url('/vuelos/' . $vuelos->Codi_unic . '/pdf')}}" class="btn btn-warning btn-sm">PDF</a>
 </td>
 </tr>
  @endforeach

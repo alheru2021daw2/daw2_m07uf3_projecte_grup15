@@ -93,4 +93,9 @@ class ControladorVuelo extends Controller
         $vuelo = Vuelo::findOrFail($Codi_unic)->delete();
 	return view('dashboard');
     }
+    public function mostrar(string $Codi_unic)
+    {
+	$datos_vuelo = Vuelo::findOrFail($Codi_unic);
+	return view('mostrarVuelos', compact('datos_vuelo'));
+    }
 }

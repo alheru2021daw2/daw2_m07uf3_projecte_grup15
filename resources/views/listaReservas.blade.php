@@ -36,6 +36,7 @@
  <td>{{$reservas->Preu_vol}}</td>
  <td>{{$reservas->Tipus_checking}}</td>
  <td class="text-left">
+	<a href="{{url ('/reservas/' . $reservas->Passaport_client . '/' . $reservas->Codi_unic)}}" class="btn btn-info btn-sm">Mostrar</a>
         <a href="{{route ('reservas.edit', $reservas->Codi_unic)}}" class="btn btn-primary btn-sm">Edita</a>
         <form action="{{ route('reservas.destroy', $reservas->Codi_unic)}}" method="post" style="display: inline-block">
         @csrf
@@ -44,7 +45,7 @@
         Borrar
         </button>
         </form>
-        <a href="{{ url('/reservas/' . $reservas->Passaport_client . '/' . $reservas->Codi_unic . '/pdf') }}" class="btn btn-info btn-sm">PDF</a>
+        <a href="{{ url('/reservas/' . $reservas->Passaport_client . '/' . $reservas->Codi_unic . '/pdf') }}" class="btn btn-warning btn-sm">PDF</a>
 </td>
 </tr>
  @endforeach

@@ -94,4 +94,11 @@ class ControladorReserva extends Controller
     	//$reserva->delete();
 	return view('dashboard');
     }
+    public function mostrar($Passaport_client, $Codi_unic)
+    {
+        $reserva = Reserva::where('Passaport_client', $Passaport_client)
+                      ->where('Codi_unic', $Codi_unic)
+                      ->first();
+        return view('mostrarReservas', compact('reserva'));
+    }
 }

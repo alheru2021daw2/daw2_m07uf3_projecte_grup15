@@ -24,6 +24,9 @@ Route::group(['middleware' => 'auth'], function(){
 
 //	Route::get('clientes/index_basic', 'ControladorCliente@index_basic')->name('clientes.index_basic');
 	Route::get('clientes/index_basic', [ControladorCliente::class, 'index_basic'])->name('clientes.index_basic');
+        Route::get('/clientes/{Passaport_client}',[ControladorCliente::class, 'mostrar'])->name('clientes.mostrar');
+	Route::get('/vuelos/{Codi_unic}', [ControladorVuelo::class, 'mostrar'])->name('vuelos.mostrar');
+	Route::get('/reservas/{Passaport_client}/{Codi_unic}',[ControladorReserva::class, 'mostrar'])->name('reserva.mostrar');
 //	Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');	
 	Route::get('/dashboard', function (){
 		return view('dashboard');

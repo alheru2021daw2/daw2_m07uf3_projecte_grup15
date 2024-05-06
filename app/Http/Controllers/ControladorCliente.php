@@ -98,4 +98,11 @@ class ControladorCliente extends Controller
         $datos_clientes = Cliente::all();
         return view('lista-basica', compact('datos_clientes'));
     }
+	public function mostrar($Passaport_client)
+    {
+	
+	$datos_cliente = Cliente::findOrFail($Passaport_client);
+	return view('mostrar', compact('datos_cliente'));
+    }
+	
 }

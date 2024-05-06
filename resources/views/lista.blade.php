@@ -11,15 +11,8 @@
  	<tr class="table-primary">
  	<td>Passaport</td>
  	<td>Nom</td>
- 	<td>Cognom</td>
- 	<td>Edat</td>
- 	<td>Telefon</td>
- 	<td>Adreça</td>
- 	<td>Ciutat</td>
- 	<td>Pais</td>
- 	<td>Email</td>
- 	<td>Tipus targeta</td>
- 	<td>Numero targeta</td>
+	<td>Cognoms</td>
+	<td>Edat</td>
 	<td>Acciones sobre la tabla</td> 
  	</tr>
  	</thead>
@@ -30,15 +23,8 @@
  <td>{{$clientes->Nom}}</td>
  <td>{{$clientes->Cognoms}}</td>
  <td>{{$clientes->Edat}}</td>
- <td>{{$clientes->Telefon}}</td>
- <td>{{$clientes->Adressa}}</td>
- <td>{{$clientes->Ciutat}}</td>
- <td>{{$clientes->Pais}}</td>
- <td>{{$clientes->Email}}</td>
- <td>{{$clientes->Tipus_targeta}}</td>
- <td>{{$clientes->Numero_targeta}}</td>
- 
  <td class="text-left">
+	<a href="{{route ('clientes.mostrar', $clientes->Passaport_client)}}"class="btn btn-info btn-sm">Mostra</a>
 	<a href="{{ route('clientes.edit', $clientes->Passaport_client)}}" class="btn btn-primary btn-sm">Edita</a>
 	<form action="{{route('clientes.destroy', $clientes->Passaport_client)}}" method="post" style="display: inline-block">
 	@csrf
@@ -47,7 +33,7 @@
 	Borrar
 	</button>
 	</form>
-        <a href="{{url('/clientes/' . $clientes->Passaport_client . '/pdfC')}}" class="btn btn-info btn-sm">PDF</a>
+        <a href="{{url('/clientes/' . $clientes->Passaport_client . '/pdfC')}}" class="btn btn-warning btn-sm">PDF</a>
 </td> 
 </tr>
  @endforeach
